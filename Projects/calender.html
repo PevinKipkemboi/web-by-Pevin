@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>calendar generator</h2>
+        <h2>
+            <input type="number" id="Year" placeholder="Year (e.g., 2026)">
+            <input type="number" id="Month" placeholder="Month (1-12)" min="1" max="12">
+            <button onclick="generateCalendar()">show Calendar</button>
+        </h2>
+
+        <div id="calendar-output"></div>
+    </div>
+
+    <script>
+        function generateCalendar() {
+            const year = parseInt(document.getElementById('Year').value);
+            const month = parseInt(document.getElementById('Month').value) - 1; // JavaScript months are 0-indexed
+
+            if (isNaN(year) || isNaN(month) || month < 0 || month > 11) {
+                alert('Please enter a valid year or month.');
+                return;
+            }
+
+            const calendarOutput = document.getElementById('calendar-output');
+            calendarOutput.innerHTML = ''; // Clear previous output
+
+            const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let calendarHTML = '<table border="1"><tr>';
+            for (let day of daysOfWeek) {
+                calendarHTML += `<th>${day}</th>`;
+            }
+            calendarHTML += '</tr><tr>';
+
+            for (let i = 0; i < firstDay; i++) {
+                calendarHTML += '<td></td>'; // Empty cells for days before the first day
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                if ((firstDay + day - 1) % 7 === 0 && day !== 1) {
+                    calendarHTML += '</tr><tr>'; // Start a new row after Saturday
+                }
+                calendarHTML += `<td>${day}</td>`;
+            }
+
+            calendarHTML += '</tr></table>';
+            calendarOutput.innerHTML = calendarHTML;
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: blue;
+            color: rgb(255, 249, 249);
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        table {
+            background-color: white;
+            color: rgb(21, 255, 0);
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        th,
+        td {
+            color: rgb(0, 0, 0);
+            width: 14.28%;
+            height: 40px;
+            text-align: center;
+        }
+    </style>
+
+</body>
+
+</html>
