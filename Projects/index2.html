@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wanted Poster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="poster">
+        <h1 class="header">WANTED</h1>
+        <h2 class="sub-header">DEAD OR ALIVE</h2>
+
+        <div class="photo-area">
+            <img src="wanted_man.webp" alt="Suspect Photo">
+        </div>
+
+        <h3 class="name">"THE PROGRAMMER"</h3>
+
+        <div class="details">
+            <p>REWARD</p>
+            <p class="amount">$1,000,000</p>
+        </div>
+
+        <p class="crimes">CRIMES: Writing Infinite Loops and Forgetting Semicolons</p>
+    </div>
+    <style>
+        body {
+            background-color: #2c2c2c;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .poster {
+            background-color: #f4e4bc;
+            /* Parchment color */
+            width: 400px;
+            padding: 30px;
+            border: 15px solid #5d4037;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: #3e2723;
+        }
+
+        .header {
+            font-size: 60px;
+            margin: 0;
+            letter-spacing: 5px;
+            font-weight: 900;
+        }
+
+        .sub-header {
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-top: 3px solid #3e2723;
+            border-bottom: 3px solid #3e2723;
+            padding: 5px 0;
+        }
+
+        .photo-area img {
+            width: 100%;
+            height: auto;
+            filter: sepia(1) contrast(1.2);
+            /* Makes any photo look old */
+            border: 5px solid #3e2723;
+        }
+
+        .name {
+            font-size: 30px;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        .amount {
+            font-size: 45px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .crimes {
+            font-size: 14px;
+            font-style: italic;
+            margin-top: 20px;
+        }
+    </style>
+</body>
+
+</html>
